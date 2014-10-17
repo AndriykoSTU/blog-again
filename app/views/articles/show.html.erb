@@ -1,6 +1,10 @@
 #coding:utf-8
 <h1><%= @article.title %></h1>
 <p><%= @article.body %></p>
+
+
+<%= render partial: 'comments/form' %>
+
 <%= link_to "Повернутися до переліку", articles_path %>
 <%= link_to "Видалити", article_path(@article), method: :delete, data: {confirm: "ти впевнений?"}
  %>

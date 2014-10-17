@@ -33,8 +33,10 @@ class ArticlesController < ApplicationController
 
 	def show
 		@article = Article.find(params[:id])
-
+		@comment = Comment.new
+		@comment.article_id = @article.id
 	end
+
 	def destroy
 		@article = Article.destroy(params[:id])
 		flash.notice = "Статтю '#{@article.title}' видалено!"

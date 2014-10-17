@@ -1,3 +1,4 @@
+#coding:utf-8
 <%= form_for(@article) do |f| %>
   <ul>
   <% @article.errors.full_messages.each do |error| %>
@@ -5,14 +6,14 @@
   <% end %>
   </ul>
   <p>
-    <%= f.label :title %><br />
+    <%= f.label :title, "Назва" %><br />
     <%= f.text_field :title %>
   </p>
   <p>
-    <%= f.label :body %><br />
+    <%= f.label :body, "Текст" %><br />
     <%= f.text_area :body %>
   </p>
   <p>
-    <%= f.submit %>
+    <%= f.submit 'Зберегти статтю' %>
   </p>
 <% end %>
