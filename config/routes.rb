@@ -1,8 +1,12 @@
 Secblo::Application.routes.draw do
+
   root to: 'articles#index'
   resources :articles do
     resources :comments
-  end # The priority is based upon order of creation: first created -> highest priority.
+  end
+  resources :tags
+end
+   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
@@ -56,4 +60,4 @@ Secblo::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
+#end
