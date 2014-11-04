@@ -2,11 +2,18 @@
 <h1>Теги</h1>
 
 
-	<%= link_to tag, tags_path(tag) %>
+
+<ul id="Теги">
+	<% @tags.each do |tag| %>
+	<li>
+	<%= link_to tag.name, tag_path(tag)  %>
+	
+
+	</li>
+	<% end %>
+	</ul>
+	
+	
 
 
-
-
-
-
-	<%= link_to "Додати публікацію", new_article_path, class: "new_article" %>
+	

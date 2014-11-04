@@ -1,16 +1,19 @@
 class TagsController < ApplicationController
+	before_filter :require_login, only: [:destroy]
 	def show
 		@tag = Tag.find(params[:id])
 		
 	end
 
 	def index
-		@tag = Tag.all
+		@tags = Tag.all
 		
 	end
-
-	def edit
-		@tag = Tag.find(params[:id])
 		
+	def destroy
+		@tag = Tag.destroy(params[:id])
+		#flash.notice = "Статтю '#{@article.title}' видалено!"
+
+		redirect_to tags_path
 	end
 end

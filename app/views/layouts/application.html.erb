@@ -5,14 +5,24 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= link_to "Про мене", articles_path %>
+  <%= link_to "Статті", articles_path %>
+  <%= link_to "Теги", tags_path %>
+  <%= link_to "Зареєструватися", new_author_path %>
 </head>
 <body>
-
-<p class="flash"><%= flash.notice %></p>
-
-<%= yield %>
-
-
-
+  <div id="container">
+    <div id="content">
+      <%= yield %>
+      <hr>
+      <h6>
+        <% if logged_in? %>
+          <%= "Зараз як #{current_user.email}" %>
+          <%= link_to "(Вийти)", logout_path %>
+        <% else %>
+          <%= link_to "(Ввійти)", login_path %>
+        <% end %>
+      </h6>
+    </div>
+  </div>
 </body>
-</html>
